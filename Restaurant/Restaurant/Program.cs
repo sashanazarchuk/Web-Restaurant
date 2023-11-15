@@ -3,6 +3,7 @@ using Restaurant.Common;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureConnectionString(builder.Configuration);
 
 builder.Services.AddControllers();
 

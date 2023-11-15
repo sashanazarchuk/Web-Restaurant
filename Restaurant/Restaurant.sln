@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant", "Restaurant\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{CE272D19-6558-41C2-A40A-DF4472529A20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{53844DD2-4ED8-4A7D-8E7A-2F2DFF4A76E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CE272D19-6558-41C2-A40A-DF4472529A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE272D19-6558-41C2-A40A-DF4472529A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE272D19-6558-41C2-A40A-DF4472529A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53844DD2-4ED8-4A7D-8E7A-2F2DFF4A76E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53844DD2-4ED8-4A7D-8E7A-2F2DFF4A76E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53844DD2-4ED8-4A7D-8E7A-2F2DFF4A76E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53844DD2-4ED8-4A7D-8E7A-2F2DFF4A76E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
