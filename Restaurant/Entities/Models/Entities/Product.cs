@@ -18,7 +18,7 @@ namespace Entities.Models.Entities
         public decimal Price { get; set; } 
         public decimal Discount { get; set; }
 
-        [ForeignKey("Category")]
+        [ForeignKey("CategoryId")]
         public virtual int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<ProductImages> Images { get; set; }

@@ -11,8 +11,9 @@ namespace Entities.Models.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int Priority { get; set; }
 
-        [ForeignKey("Product")]
+        [ForeignKey("ProductId")]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
     }
