@@ -25,28 +25,27 @@ namespace Restaurant.Controllers.ProductController
         [HttpGet("GetAllProduct")]
         public async Task<IActionResult> GetAllProduct()
         {
-            var result = await service.GetAllProduct();
-            return Ok(result);
-            //try
-            //{
-            //    var result = await service.GetAllProduct(); // Retrieve a list of all products from product service
+         
+            try
+            {
+                var result = await service.GetAllProduct(); // Retrieve a list of all products from product service
 
-            //    // Check if the result is null
-            //    if (result == null)
-            //    {
-            //        logger.LogError("A NullReferenceException occurred while receiving the products");
-            //        return BadRequest("A NullReferenceException occurred while receiving the products"); // Returning a bad request with an error message.
-            //    }
+                // Check if the result is null
+                if (result == null)
+                {
+                    logger.LogError("A NullReferenceException occurred while receiving the products");
+                    return BadRequest("A NullReferenceException occurred while receiving the products"); // Returning a bad request with an error message.
+                }
 
-            //    logger.LogInfo("Product list return successfully");
-            //    return Ok(result);// Returning a successful response with the product list.
-            //}
-            //catch (Exception ex)
-            //{
+                logger.LogInfo("Product list return successfully");
+                return Ok(result);// Returning a successful response with the product list.
+            }
+            catch (Exception ex)
+            {
 
-            //    logger.LogError("An error occurred while receiving the products: " + ex.Message);
-            //    return BadRequest("An error occurred while receiving the products"); // Returning a bad request with an error message.
-            //}
+                logger.LogError("An error occurred while receiving the products: " + ex.Message);
+                return BadRequest("An error occurred while receiving the products"); // Returning a bad request with an error message.
+            }
         }
 
 
