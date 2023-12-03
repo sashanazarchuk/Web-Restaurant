@@ -1,4 +1,5 @@
 ﻿using Entities.Models.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Data
 {
-    public class ResDbContext : DbContext
+    public class ResDbContext : IdentityDbContext<User>
     {
         public ResDbContext(DbContextOptions options) : base(options) { }
 
@@ -22,5 +23,6 @@ namespace Entities.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> Images { get; set; }
         public DbSet<Category> Categories { get; set; }
+    
     }
 }
