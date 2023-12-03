@@ -11,6 +11,9 @@ builder.Services.ConfigureConnectionString(builder.Configuration);
 //Add Auto-Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+//Add Identity
+builder.Services.ConfigureIdentity();
+
 builder.Services.AddScoped<IProductService<ProductDto>, ProductService>();
 
 builder.Services.AddControllers();
