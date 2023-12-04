@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BusinessLogic.DTOs.AuthDto;
 using BusinessLogic.DTOs.ProductDto;
 using BusinessLogic.DTOs.ProductsDto;
 using Entities.Models.Entities;
@@ -22,6 +23,9 @@ namespace BusinessLogic.Mapper
 
             CreateMap<Category, CategoryDto>();
             CreateMap<CategoryDto, Category>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
 
         }
     }

@@ -24,7 +24,7 @@ namespace Restaurant.Common
         {
             services.AddDbContext<ResDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
+                options.UseNpgsql(configuration.GetConnectionString("sqlConnection"));
             });
         }
 
@@ -32,14 +32,14 @@ namespace Restaurant.Common
         //Configured Identity
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            services.AddIdentityCore<User>(options =>
+            services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.Stores.MaxLengthForKeys = 128;
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 5;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
                 options.User.RequireUniqueEmail = true;
 
             }).AddEntityFrameworkStores<ResDbContext>().AddDefaultTokenProviders().AddSignInManager();
