@@ -17,10 +17,13 @@ namespace BusinessLogic.Services.AuthServices
     {
         private readonly UserManager<User> userManager;
         private readonly ILoggerManager logger;
-        public RegisterService(UserManager<User> userManager, ILoggerManager logger)
+        private readonly RoleManager<IdentityRole> roleManager;
+
+        public RegisterService(UserManager<User> userManager, ILoggerManager logger, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.logger = logger;
+            this.roleManager = roleManager;
         }
 
         public async Task<IdentityResult> Register(RegisterViewModel model)
@@ -51,9 +54,19 @@ namespace BusinessLogic.Services.AuthServices
                 // Attempting to create a user
                 var result = await userManager.CreateAsync(user, model.Password);
 
-                // Log success or errors based on the result of user creation
+                 //If succeeded added user role
                 if (result.Succeeded)
+                {
+                    // Log success or errors based on the result of user creation 
                     logger.LogInfo($"Registration successful for user '{model.Email}'.");
+
+                    //Add user role "User"
+                    var userRole = await roleManager.FindByNameAsync("User");
+                    if (userRole != null)
+                    {
+                        await userManager.AddToRoleAsync(user, userRole.Name);
+                    }
+                }
                 else
                     logger.LogError($"Registration failed. Errors: {string.Join(", ", result.Errors)}");
 

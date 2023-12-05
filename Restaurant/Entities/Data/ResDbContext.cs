@@ -1,4 +1,5 @@
-﻿using Entities.Models.Entities;
+﻿using Entities.Configuration;
+using Entities.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +20,7 @@ namespace Entities.Data
 
             modelBuilder.Entity<Category>().HasMany(p => p.Products).WithOne(c => c.Category).HasForeignKey(c=>c.CategoryId);
             modelBuilder.Entity<Product>().HasMany(p => p.Images).WithOne(p => p.Product).HasForeignKey(c => c.ProductId);
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImages> Images { get; set; }
