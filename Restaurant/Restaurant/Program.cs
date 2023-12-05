@@ -17,6 +17,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Add Identity
 builder.Services.ConfigureIdentity();
 
+//Add Jwt
+builder.Services.ConfigureJWT(builder.Configuration);
+
 builder.Services.AddScoped<IProductService<ProductDto>, ProductService>();
 builder.Services.AddScoped<IRegisterService<IdentityResult>, RegisterService>();
 
@@ -25,6 +28,9 @@ builder.Services.AddControllers();
 //Add Authentication
 builder.Services.AddAuthentication();
 
+//Add Swagger
+builder.Services.ConfigureSwagger();
+builder.Services.ConfigureSession();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -37,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSession();
 
 app.UseHttpsRedirection();
 

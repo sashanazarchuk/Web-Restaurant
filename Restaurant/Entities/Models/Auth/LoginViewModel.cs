@@ -9,8 +9,8 @@ namespace Entities.Models.Auth
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Enter your UserName")]
-        public string UserName { get; set; }
+        [Required(ErrorMessage = "Enter your Email")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Enter your password")]
         [DataType(DataType.Password)]
