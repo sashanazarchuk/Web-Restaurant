@@ -1,8 +1,11 @@
 using BusinessLogic.DTOs.ProductsDto;
 using BusinessLogic.Interfaces.IAuthService;
+using BusinessLogic.Interfaces.ICartService;
 using BusinessLogic.Interfaces.ProductServices;
 using BusinessLogic.Services.AuthServices;
+using BusinessLogic.Services.CartService;
 using BusinessLogic.Services.ProductServices;
+using Entities.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Restaurant.Common;
 
@@ -20,8 +23,10 @@ builder.Services.ConfigureIdentity();
 //Add Jwt
 builder.Services.ConfigureJWT(builder.Configuration);
 
+//Add custom Services
 builder.Services.AddScoped<IProductService<ProductDto>, ProductService>();
 builder.Services.AddScoped<IRegisterService<IdentityResult>, RegisterService>();
+builder.Services.AddScoped<ICartService<CartItem>, CartService>();
 
 builder.Services.AddControllers();
 
